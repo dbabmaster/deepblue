@@ -39,6 +39,16 @@ public class DeepBlueBaseController {
 
 	}
 	
+	@RequestMapping(value = "/demolist", method = RequestMethod.GET)
+	public String demolist(ModelMap model) {
+		//logger.info("Control in list method ...");
+		VideoUploadBizComp mediaUploadBizComp= new VideoUploadBizComp();
+		model.addAttribute("mediaEntries",mediaUploadBizComp.getMediaList());
+		// Spring uses InternalResourceViewResolver and return back index.jsp
+		return "list";
+
+	}
+	
 	
 
 	@RequestMapping(value = "/report/topcontent", method = RequestMethod.GET)
